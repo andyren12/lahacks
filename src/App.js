@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import TestingScreen from "./screens/TestingScreen";
+import UploadScreen from "./screens/UploadScreen";
+import WorkflowScreen from "./screens/WorkflowScreen";
+import Navbar from "./components/Navbar";
+import { Route, Routes, BrowserRouter as Router } from "react-router-dom";
+import "./App.css";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <Router>
+            <Navbar />
+            <Routes>
+                <Route
+                    path="/"
+                    element={<UploadScreen />}
+                />
+                <Route
+                    path="test"
+                    element={<TestingScreen />}
+                />
+                <Route
+                    path="workflow"
+                    element={<WorkflowScreen />}
+                />
+            </Routes>
+        </Router>
+    );
 }
 
 export default App;
